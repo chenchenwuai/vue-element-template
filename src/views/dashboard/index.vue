@@ -15,7 +15,7 @@ export default {
 </script>
 <style lang="scss">
 .dashboard-container{
-  min-height: calc(100vh);
+  min-height: calc(100vh - 50px);
   background-color: #F0F2F5;
   padding: 20px;
 }

@@ -1,0 +1,82 @@
+.filter-item{
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+.little_dialog, .medium_dialog, .large_dialog {
+  & .el-dialog{
+    width:100%;
+  }
+}
+
+@media (max-width: 499px) {
+  .little_dialog, .medium_dialog, .large_dialog {
+      width: 100%;
+      margin: 0 auto;
+  }
+  .little_drawer, .medium_drawer, .large_drawer {
+    & .el-drawer{
+      width:90% !important;
+    }
+  }
+}
+
+@media (min-width: 500px) and (max-width: 767px) {
+  .little_dialog, .medium_dialog, .large_dialog {
+      width: 90%;
+      margin: 0 auto;
+  }
+  .little_drawer, .medium_drawer, .large_drawer {
+    & .el-drawer{
+      width:70% !important;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .medium_dialog, .large_dialog {
+      width: 80%;
+      margin: 0 auto;
+  }
+  .little_dialog {
+      max-width: 500px;
+      margin: 0 auto;
+  }
+
+  .little_drawer, .medium_drawer, .large_drawer {
+    & .el-drawer{
+      width:50% !important;
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .little_dialog {
+      max-width: 500px;
+      margin: 0 auto;
+  }
+  .medium_dialog {
+      max-width: 800px;
+      margin: 0 auto;
+  }
+  .large_dialog {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .little_dialog {
+      max-width: 500px;
+      margin: 0 auto;
+  }
+  .medium_dialog {
+      max-width: 800px;
+      margin: 0 auto;
+  }
+  .large_dialog {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}

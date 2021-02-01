@@ -1,3 +1,29 @@
+
+@mixin formatTextElButton($color) {
+  $hoverColor : desaturate($color,20%);
+  &.el-button--text{
+    color:$color;
+    background-color: transparent;
+    border-color: transparent;
+
+    &.is-disabled{
+      color:$hoverColor;
+      background-color: transparent;
+      border-color: transparent;
+
+      :focus, :hover{
+        color:$hoverColor;
+        background-color: transparent;
+        border-color: transparent;
+      }
+    }
+
+    :focus, :hover{
+      color:$hoverColor;
+    }
+  }
+}
+
 @mixin clearfix {
   &:after {
     content: "";
