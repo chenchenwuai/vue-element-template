@@ -22,6 +22,11 @@ function CRUD(options) {
     url: '',
     // 表格数据
     data: [],
+    //请求数据体中的数据的字段名
+    dataKeys:{
+      data: 'content',
+      total: 'totalElements'
+    },
     // 选择项
     selections: [],
     // 待查询的对象
