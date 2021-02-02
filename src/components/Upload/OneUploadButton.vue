@@ -12,7 +12,10 @@
     :show-file-list="false"
     style="display:inline-block;margin-right:10px;"
   >
-    <el-button size="mini" :type="buttonType" :disabled="disabled || isLoading">{{ text }}</el-button>
+    <el-button size="mini" :type="buttonType" :disabled="disabled || isLoading">
+      <i v-if="buttonIcon" :class="buttonIcon" />
+      {{ text }}
+    </el-button>
   </el-upload>
 </template>
 <script>
@@ -35,6 +38,10 @@ export default {
     buttonText: {
       type: String,
       default: '上传'
+    },
+    buttonIcon: {
+      type: String,
+      default: ''
     },
     disabled: {
       type: Boolean,
