@@ -36,7 +36,8 @@ module.exports = {
         changeOrigin: true,
         ws: false
       }
-    }
+    },
+    before: require('./mock/mock-server.js')
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that

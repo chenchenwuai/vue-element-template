@@ -1,5 +1,5 @@
 module.exports = {
-  title: '智慧运维平台',
+  title: 'Vue Element Template',
 
   /**
    * @type {boolean} true | false
@@ -35,5 +35,5 @@ module.exports = {
   /**
    * @description token key
    */
-  TokenKey: 'nekot'
+  TokenKey: 'ne_kot'
 }

@@ -1,26 +1,25 @@
 <template>
   <div class="login-container">
     <el-form ref="loginForm" :inline="false" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="off" label-position="left">
-
       <div class="title-container">
         <h3 class="title">{{ WEB_TITLE }}</h3>
       </div>
-        <el-form-item prop="username" class="inline-form-item">
-          <span class="svg-container">
-            <svg-icon icon-class="user" />
-          </span>
-          <el-input
-            ref="username"
-            v-model="loginForm.username"
-            placeholder="用户名"
-            name="username"
-            type="text"
-            tabindex="1"
-            autocomplete="on"
-            :autofocus="true"
-            @keyup.enter.native="handleLogin"
-          />
-        </el-form-item>
+      <el-form-item prop="username" class="inline-form-item">
+        <span class="svg-container">
+          <svg-icon icon-class="user" />
+        </span>
+        <el-input
+          ref="username"
+          v-model="loginForm.username"
+          placeholder="用户名"
+          name="username"
+          type="text"
+          tabindex="1"
+          autocomplete="on"
+          :autofocus="true"
+          @keyup.enter.native="handleLogin"
+        />
+      </el-form-item>
 
       <el-tooltip v-model="capsTooltip" content="大写已锁定" placement="right" manual>
         <el-form-item prop="password" :inline="false" style="width:100%;">

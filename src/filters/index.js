@@ -1,6 +1,5 @@
 // import parseTime, formatTime and set to filter
 export { parseTime, formatTime } from '@/utils/date'
-export { formatDeviceType } from '@/utils/device'
 
 /**
  * Show plural label if time is plural number

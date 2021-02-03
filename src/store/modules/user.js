@@ -38,7 +38,6 @@ const user = {
           setToken(res.token, rememberMe)
           commit('SET_TOKEN', res.token)
           commit('SET_USER', res.userInfo)
-          dispatch('wcs/SetWCSURI', res.wcsUri)
           resolve()
         }).catch(error => {
           reject(error)

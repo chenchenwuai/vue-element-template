@@ -1,8 +1,6 @@
 import Cookies from 'js-cookie'
 import Config from '@/settings'
 
-import { removeServerWSURI } from '@/components/WCSVideo/utils/auth' // 清空websocket的uri
-
 const TokenKey = Config.TokenKey
 
 export function getToken() {
@@ -20,6 +18,5 @@ export function removeToken() {
 }
 
 export function removeUserCache() {
-  removeServerWSURI()
   return true
 }

@@ -20,6 +20,12 @@ import './utils/error-log' // error log
 
 import * as filters from './filters' // global filters
 
+if (process.env.NODE_ENV === 'development') {
+  console.log(process.env)
+  const { mockXHR } = require('../mock')
+  mockXHR()
+}
+
 Vue.use(Element, {
   size: Cookies.get('size') || 'small' // set element-ui default size
   // locale: enLang // 如果使用中文，无需设置，请删除

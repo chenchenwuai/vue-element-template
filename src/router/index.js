@@ -7,6 +7,7 @@ import 'nprogress/nprogress.css'// progress bar style
 import { getToken } from '@/utils/auth' // getToken from cookie
 import { buildMenus } from '@/api/system/menu'
 import { filterAsyncRouter, flatAsyncRouter } from '@/utils/permission'
+import { isArray } from '@/utils/validate'
 
 NProgress.configure({ showSpinner: false })// NProgress Configuration
 
@@ -27,7 +28,7 @@ router.beforeEach((to, from, next) => {
       next({ path: '/' })
       NProgress.done()
     } else {
-      if (!store.getters.userinfo.id || store.getters.userinfo.username === undefined) { // 判断当前用户是否已拉取完user_info信息
+      if (!store.getters.userinfo.id) { // 判断当前用户是否已拉取完user_info信息
         store.dispatch('GetInfo').then(res => { // 拉取user_info
           loadMenus(next, to)
         }).catch((e) => {
@@ -56,9 +57,12 @@ router.beforeEach((to, from, next) => {
 // 首次登录动态加载当前职位权限
 export const loadMenus = (next, to) => {
   buildMenus().then(res => {
-    const all_permission = res.filter(item => {
-      return true
-    })
+    let all_permission = []
+    if (res && isArray(res)) {
+      all_permission = res.filter(item => {
+        return true
+      })
+    }
 
     const asyncRouter = handlePermissions(all_permission)
     store.dispatch('setUserPermissions', asyncRouter)

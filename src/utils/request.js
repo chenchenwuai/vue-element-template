@@ -3,6 +3,7 @@ import { MessageBox, Message, Loading } from 'element-ui'
 import store from '@/store'
 import { getToken, removeToken } from '@/utils/auth'
 import { downloadServerFile } from '@/utils/index'
+import whiteList from '@/api/white-list'
 
 // create an axios instance
 const service = axios.create({
@@ -20,10 +21,12 @@ const loadingOptions = {
 // request interceptor
 service.interceptors.request.use(
   config => {
+    console.log(`REQUEST:  ${config.url}  ${config.method}`, config)
     if (getToken()) {
       config.headers['Authorization'] = 'bearer ' + getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
     } else {
-      if (config.url !== 'users/actions/login' && config.url !== 'users/actions/logout') {
+      const isWhite = Object.keys(whiteList).findIndex(key => whiteList[key] === config.url)
+      if (isWhite === -1) {
         MessageBox.confirm('登录状态失效，请重新登录', '账号退出提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -166,7 +169,7 @@ service.interceptors.response.use(
     }
   },
   error => {
-    console.log('err' + error) // for debug
+    console.log('err', error) // for debug
     Message({
       message: error.message,
       type: 'error',

@@ -1,8 +1,9 @@
 import request from '@/utils/request'
+import whiteApiList from './white-list'
 
 export function login(username, password) {
   return request({
-    url: 'users/actions/login',
+    url: whiteApiList.loginApiPath,
     method: 'post',
     data: {
       username,
@@ -11,9 +12,16 @@ export function login(username, password) {
   })
 }
 
+export function getInfo() {
+  return request({
+    url: '/users',
+    method: 'get'
+  })
+}
+
 export function logout() {
   return request({
-    url: 'users/actions/logout',
+    url: whiteApiList.logoutApiPath,
     method: 'get'
   })
 }
