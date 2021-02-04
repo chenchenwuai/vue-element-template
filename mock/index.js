@@ -1,12 +1,14 @@
 const Mock = require('mockjs')
 const { param2Obj } = require('./utils')
 
-const user = require('./user')
-const menu = require('./menu')
+// you do not need `import xxx from './modules/xxx'`
+// it will auto require all mock modules from module files
+/* Mock Modules */
+const moduleFiles = require.context('./modules', true, /\.js$/)
+const modules = moduleFiles.keys().reduce((modules, modulePath) => [...modules, ...moduleFiles(modulePath)], [])
 
 const mocks = [
-  ...user,
-  ...menu
+  ...modules
 ]
 
 // for front mock
