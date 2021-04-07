@@ -52,7 +52,11 @@ export default {
     },
     permission: {
       type: Object,
-      required: true
+      default: () => {
+        return {
+          edit: true, del: true
+        }
+      }
     },
     disabledEdit: {
       type: Boolean,

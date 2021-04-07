@@ -16,8 +16,6 @@ function checkPermission(el, binding) {
         el.parentNode && el.parentNode.removeChild(el)
       }
     }
-  } else {
-    throw new Error(`need roles! Like v-permission="['admin','editor']"`)
   }
 }
 
