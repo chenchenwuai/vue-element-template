@@ -1,6 +1,6 @@
 <template>
   <div class="crud-opts">
-    <span class="crud-opts-left">
+    <span v-if="leftShow" class="crud-opts-left">
       <!--左侧插槽-->
       <slot name="left" />
       <el-button
@@ -53,7 +53,7 @@
       <!--右侧-->
       <slot name="right" />
     </span>
-    <el-button-group class="crud-opts-right">
+    <el-button-group v-if="rightShow" class="crud-opts-right">
       <el-button
         v-if="crud.optShow.search"
         size="mini"
@@ -79,6 +79,14 @@ export default {
     permission: {
       type: Object,
       default: () => { return {} }
+    },
+    leftShow: {
+      type: Boolean,
+      default: true
+    },
+    rightShow: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
