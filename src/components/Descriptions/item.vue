@@ -95,11 +95,13 @@ export default {
       box-sizing: border-box;
   }
   .descriptions-item__content {
-    line-height: 2.5em;
     position: relative;
     font-size: 14px;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.8);
+    word-break:break-all;
+    line-height: 1.3em;
+    margin-top: 0.65em;
   }
 }
 </style>
