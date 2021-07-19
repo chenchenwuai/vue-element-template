@@ -196,6 +196,25 @@ export function debounce(func, wait, immediate) {
   }
 }
 
+export function throttle(fn, delay = 200, duration = 800) {
+  let timer = null
+  let begin = new Date()
+  return function() {
+    const context = this
+    const args = arguments
+    const current = new Date()
+    clearTimeout(timer)
+    if (current - begin >= duration) {
+      fn.apply(context, args)
+      begin = current
+    } else {
+      timer = setTimeout(function() {
+        fn.apply(context, args)
+      }, delay)
+    }
+  }
+}
+
 /**
  * This is just a simple version of deep copy
  * Has a lot of edge cases bug
